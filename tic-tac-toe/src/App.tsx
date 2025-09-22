@@ -1,10 +1,9 @@
-import { useState } from 'react'
+
 import ticTacToeLogo from './assets/tic-tac-toe-icon.svg'
 import './App.css'
 import Board from './tic-tac-toe-board'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
