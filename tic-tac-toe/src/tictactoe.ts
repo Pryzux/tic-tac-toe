@@ -1,7 +1,10 @@
+// Data Structures
+
 export type GameState = {
   board: ('X' | 'O' | null)[][]
   winner: 'X' | 'O' | 'Draw' | null
   player: 'X' | 'O' | null
+
 }
 
 
@@ -16,9 +19,16 @@ export const initialGameState: GameState = {
   }
 
 
+// Helpers
+
 function check_winner(currentGame: GameState): Boolean {
 
   const board = currentGame.board;
+
+  if (is_draw(currentGame)) {
+    console.log("Game is a draw")
+    return false
+  }
 
   if (board[0][0] !== null && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
     return true;
@@ -48,6 +58,31 @@ function check_winner(currentGame: GameState): Boolean {
 
 }
 
+function is_valid_move(currentGame: GameState,row:number,col:number): Boolean {
+
+  
+
+  if (currentGame.board[row][col] != null) {
+    console.log("Invalid Move")
+    return false
+  }
+
+  return true
+
+}
+
+function is_draw(currentGame: GameState): Boolean {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; i<3; i++) {
+      if (currentGame.board[i][j] == null){
+        return false
+      }
+    }  
+}
+
+return true
+}
+
 
 export function makeMove(currentGame: GameState, row:number, col:number): GameState {
 
@@ -60,9 +95,12 @@ export function makeMove(currentGame: GameState, row:number, col:number): GameSt
     newGameState.player = 'X'
   }
 
-  newGameState.board[row][col] = currentGame.player
 
+  if (is_valid_move(currentGame,row,col)) {
+    newGameState.board[row][col] = currentGame.player
 
+  }
+  
   if (check_winner(newGameState)) {
       newGameState.winner = newGameState.player
       console.log("Winner is: " + newGameState.winner)
@@ -72,4 +110,4 @@ export function makeMove(currentGame: GameState, row:number, col:number): GameSt
   return newGameState
 
 }
-    
+
