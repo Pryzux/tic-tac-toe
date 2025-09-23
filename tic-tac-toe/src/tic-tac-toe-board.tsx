@@ -1,13 +1,13 @@
 import './App.css'
 import { useState } from 'react'
 import { initialGameState, reset_game } from './tictactoe.ts'
-import { makeMove } from './tictactoe.ts'
+import { make_move } from './tictactoe.ts'
 
 function Board() {
   const [gameState, setGameState] = useState(initialGameState)
 
   const handleClick = (row: number, col: number) => {
-    const newState = makeMove(gameState, row, col)
+    const newState = make_move(gameState, row, col)
     setGameState(newState)
   }
 

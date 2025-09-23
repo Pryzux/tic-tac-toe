@@ -59,8 +59,8 @@ function winner(currentGame: GameState): Boolean {
 //need to fix
 function draw(currentGame: GameState): Boolean {
   for (let i = 0; i < 3; i++) {
-    for (let j = 0; i<3; i++) {
-      if (currentGame.board[i][j] == null){
+    for (let j = 0; j<3; j++) {
+      if (currentGame.board[i][j] === null){
         return false
       }
     }  
@@ -87,7 +87,7 @@ function valid_move(currentGame: GameState,row:number,col:number): Boolean {
 
 //---Exposed---
 
-export function makeMove(currentGame: GameState, row: number, col: number): GameState {
+export function make_move(currentGame: GameState, row: number, col: number): GameState {
 
   const newGameState = structuredClone(currentGame);
 
