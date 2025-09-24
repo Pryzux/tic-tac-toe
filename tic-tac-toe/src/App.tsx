@@ -1,7 +1,10 @@
 
 import ticTacToeLogo from './assets/tic-tac-toe-icon.svg'
 import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Board from './tic-tac-toe-board'
+
+const queryClient = new QueryClient();
 
 function App() {
 
@@ -11,17 +14,17 @@ function App() {
         <a href="https://vite.dev" target="_blank">
           <img src={ticTacToeLogo} className="logo" alt="Tic Tac Toe logo" />
         </a>
-      
+
       </div>
 
       <h1>Tic Tac Toe</h1>
 
       <div className="card">
-        
-        <Board />
+
+        <QueryClientProvider client={queryClient}><Board /></QueryClientProvider>
 
       </div>
-      
+
       <p className="read-the-docs">
         Click a square to play
       </p>
