@@ -24,7 +24,6 @@ export const initialGameState: GameState = {
 
 //---Helpers---
 
-//need to fix
 function winner(currentGame: GameState): Boolean {
 
   const board = currentGame.board;
@@ -56,7 +55,7 @@ function winner(currentGame: GameState): Boolean {
   return false
 
 }
-//need to fix
+
 function draw(currentGame: GameState): Boolean {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j<3; j++) {
@@ -67,8 +66,6 @@ function draw(currentGame: GameState): Boolean {
 }
 return true
 }
-
-
 
 function valid_move(currentGame: GameState,row:number,col:number): Boolean {
 
@@ -109,9 +106,6 @@ export function make_move(currentGame: GameState, row: number, col: number): Gam
 
   return newGameState;
 }
-
-
-
 
 export function reset_game():GameState {
   return initialGameState
