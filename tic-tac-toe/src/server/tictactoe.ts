@@ -8,7 +8,7 @@ export type GameState = {
 
 }
 
-//Default
+// Default
 export const initialGameState: GameState = {
   board: [
     [null, null, null],
@@ -107,9 +107,6 @@ export function make_move(currentGame: GameState, row: number, col: number): Gam
   return newGameState;
 }
 
-export function reset_game():GameState {
-  return initialGameState
-}
 
 export function change_player(GameState:GameState):GameState {
 
