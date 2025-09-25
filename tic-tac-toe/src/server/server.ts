@@ -19,6 +19,9 @@ app.use(express.json());
 let games = new Map<string,GameState>()
 
 
+let testGame = structuredClone(initialGameState)
+testGame.id = "123"
+games.set(testGame.id,testGame)
 
 type MoveRequestBody = {
   id: string,
@@ -93,7 +96,6 @@ app.post("/resetgame:id", (req, res) => {
 
   }
 );
-
 
 
 

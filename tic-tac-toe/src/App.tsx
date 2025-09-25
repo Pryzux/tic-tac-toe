@@ -8,6 +8,8 @@ const queryClient = new QueryClient();
 
 function App() {
 
+  const gameId = "123"
+
   return (
     <>
       <div>
@@ -21,7 +23,7 @@ function App() {
 
       <div className="card">
 
-        <QueryClientProvider client={queryClient}><Board /></QueryClientProvider>
+        <QueryClientProvider client={queryClient}><Board id={gameId} /></QueryClientProvider>
 
       </div>
 
