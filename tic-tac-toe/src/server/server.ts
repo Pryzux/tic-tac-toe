@@ -7,15 +7,7 @@ import type { GameState } from "./tictactoe";
 const app = express();
 app.use(express.json());
 
-//paris/game/id returns a list of all the game ids
-//create .set = create geame button
 
-//list games
-//create games
-//retrieve game available
-//move for a game
-
-// where were storing the games {id:gameState,...}
 let games = new Map<string,GameState>()
 
 
