@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 
 
 
-function Board({ id }: { id: string }) {
+function Game({ id }: { id: string }) {
 
   // Fetch state
   const { data, isPending, error, refetch } = useQuery({
@@ -120,4 +120,4 @@ function Board({ id }: { id: string }) {
   )
 }
 
-export default Board
+export default Game

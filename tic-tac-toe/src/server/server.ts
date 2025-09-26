@@ -19,10 +19,6 @@ app.use(express.json());
 let games = new Map<string,GameState>()
 
 
-let testGame = structuredClone(initialGameState)
-testGame.id = "123"
-games.set(testGame.id,testGame)
-
 type MoveRequestBody = {
   id: string,
   row: number;
@@ -35,7 +31,8 @@ type MoveRequestBody = {
 app.post("/create", (_, res) => {
     const newGame = createGame()
     games.set(newGame.id, newGame)
-    res.json(newGame)
+    console.log("New Game Created: " + newGame.id)
+    res.json(newGame.id)
 })
 
 // return list of games - for displaying available games to frontend
