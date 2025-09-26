@@ -13,7 +13,7 @@ app.use(express.json());
 
 // -- Database Operations -- 
 
-// 
+// Return all the Games
 async function get_all_games() {
   const allGames = await db.query.gamesTable.findMany();
   return allGames
@@ -96,7 +96,7 @@ app.post("/makemove/:id", (req, res) => {
   }
 );
 
-// return game - for specific game - changed to post
+
 app.get("/game/:id", async (req, res) => {
   
   const game = await get_a_game(req.params.id)
@@ -110,7 +110,7 @@ app.get("/game/:id", async (req, res) => {
 
 });
 
-//reset a game given id
+
 app.post("/resetgame/:id", (req, res) => {
 
     let game_id = req.params.id
@@ -134,7 +134,6 @@ app.post("/resetgame/:id", (req, res) => {
 
   }
 );
-
 
 
 ViteExpress.listen(app, 5001, () => console.log("Server is listening..."));
