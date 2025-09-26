@@ -1,6 +1,6 @@
 import { pgTable, varchar, jsonb } from "drizzle-orm/pg-core";
 
-     export const games = pgTable("games", {
+     export const gamesTable = pgTable("games", {
        id: varchar("id", { length: 255 }).primaryKey(), 
        board: jsonb("board").notNull(), 
        winner: varchar("winner", { length: 50 }), 

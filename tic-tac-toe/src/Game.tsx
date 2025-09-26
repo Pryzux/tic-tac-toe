@@ -9,11 +9,8 @@ function Game({ id }: { id: string }) {
   const { data, isPending, error, refetch } = useQuery({
     queryKey: ['game', id],
     queryFn: () =>
-      fetch(`http://localhost:5001/game${id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      fetch(`http://localhost:5001/game/${id}`, {
+        method: 'GET'
       }).then(res => res.json())
   });
 
@@ -24,7 +21,7 @@ function Game({ id }: { id: string }) {
 
   // send move to backend, return new data to render and update data (refetch)
   async function handleClick(id: string, row: number, col: number) {
-    const res = await fetch(`/makemove${id}`, {
+    const res = await fetch(`/makemove/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ row, col })
@@ -34,7 +31,7 @@ function Game({ id }: { id: string }) {
   }
 
   async function reset_game(id: string) {
-    const res = await fetch(`/resetgame${id}`, {
+    const res = await fetch(`/resetgame/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id })
