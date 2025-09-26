@@ -1,5 +1,6 @@
 //Structure
 export type GameState = {
+  id: string
   board: ('X' | 'O' | null)[][]
   winner: 'X' | 'O' | 'Draw' | null
   player: 'X' | 'O' | null
@@ -10,6 +11,7 @@ export type GameState = {
 
 // Default
 export const initialGameState: GameState = {
+  id: "",
   board: [
     [null, null, null],
     [null, null, null],
@@ -20,6 +22,13 @@ export const initialGameState: GameState = {
   feedback: 'Select a tile to play',
   gameStatus: 'Not Started'
   }
+
+// New game with game ID
+export function createGame(): GameState {
+  let newGame = structuredClone(initialGameState)
+  newGame.id = crypto.randomUUID()
+  return newGame
+}
 
 
 //---Helpers---
