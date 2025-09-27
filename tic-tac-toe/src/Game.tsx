@@ -109,7 +109,7 @@ function Game({ id }: { id: string }) {
         </tbody>
       </table>
       <button
-        className="mt-4 px-4 py-2 bg-amber-300 text-gray-800 rounded-lg hover:bg-amber-400 transition-colors"
+        className="mt-4 px-4 py-2 bg-amber-300 text-amber-300 rounded-lg hover:bg-amber-400 transition-colors"
         onClick={() => reset_game(id)}>
         Reset Game
       </button>

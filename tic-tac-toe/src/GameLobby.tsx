@@ -34,15 +34,20 @@ function GameLobby({ setGameId }: GameLobbyProps) {
 
     return (
         <div>
-            <h1>Tic Tac Toe</h1>
+            <h1 className="text-5xl font-bold text-amber-500 text-center drop-shadow-lg underline decoration-wavy mb-5">
+                Tic Tac Toe
+            </h1>
             <div>
                 <button
-                    className="mt-4 px-4 py-2 bg-amber-300 text-white rounded-lg hover:bg-amber-400 transition-colors"
+                    className="mt-4 px-4 py-2 mb-5 bg-amber-300 text-white rounded-lg hover:bg-amber-400 transition-colors"
                     onClick={createGame}>
                     Create Game
                 </button>
+                <h2 className="font-bold text-amber-500 text-center drop-shadow-lg underline mb-5">
+                    Available Games
+                </h2>
 
-                <ul>{games.map((gameId: string, index: number) => (<div key={index} onClick={() => setGameId(gameId)}>{gameId}</div>))}</ul>
+                <ul>{games.map((gameId: string, index: number) => (<button className="flex m-4" key={index} onClick={() => setGameId(gameId)}>{gameId}</button>))}</ul>
 
             </div>
         </div>
